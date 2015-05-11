@@ -11,8 +11,11 @@ function _convSign(selfId, convid, targetIds, action) {
     targetIds = [];
   }
   targetIds.sort();
-  var ts = parseInt(new Date().getTime() / 1000);
-  var nonce = common.getNonce(5);
+  //var ts = parseInt(new Date().getTime() / 1000);
+  var ts = 1431338131
+  //var nonce = common.getNonce(5);
+  var nonce = '28144'
+
   var content;
   if (convid) {
     content = [APPID, selfId, convid, targetIds.join(':'), ts, nonce].join(':');
@@ -30,6 +33,7 @@ function _convSign(selfId, convid, targetIds, action) {
 
 function convSign(request, response) {
   var selfId = request.params['self_id'];
+  selfId = '1'
   var convid = request.params['convid'];
   var targetIds = request.params['targetIds'];
   var action = request.params['action'];
